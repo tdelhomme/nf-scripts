@@ -56,8 +56,8 @@ if (params.help) {
     exit 1
 }
 
-//chrs = Channel.of( 1..22 )
-chrs = [22, 19, 18, 17, 16, 15, 14, 12, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1] 
+chrs = Channel.of( 1..22 )
+//chrs = [22, 19, 18, 17, 16, 15, 14, 12, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1] 
 
 bg = file(params.beagle)
 input_vcf = file(params.vcf_to_impute)
