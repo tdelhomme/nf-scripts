@@ -21,6 +21,7 @@ params.maps_folder = null
 params.ref_folder = null
 params.vcf_to_impute = null
 params.out_prefix = "imputation_"
+params.out_folder = "imputation_output"
 params.java_scratch = "./temp/"
 
 log.info ""
@@ -55,12 +56,16 @@ if (params.help) {
     exit 1
 }
 
-chrs = Channel.of( 1..22 )
+//chrs = Channel.of( 1..22 )
+chrs = [22, 19, 18, 17, 16, 15, 14, 12, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1] 
+
 bg = file(params.beagle)
 input_vcf = file(params.vcf_to_impute)
 
 process beagle {
   tag {chr}
+
+  publishDir params.out_folder, mode: 'copy', pattern: "*${chr}.vcf.gz"
 
   input:
   val chr from chrs
@@ -74,6 +79,6 @@ process beagle {
   pref = input_vcf.baseName
   '''
   #mkdir -p !{params.java_scratch}
-  java -jar -Xmx!{task.memory.toGiga()}g !{bg} map=!{params.maps_folder}/plink.chr!{chr}.GRCh37.map chrom=!{chr} gt=!{input_vcf} ref=!{params.ref_folder}/chr!{chr}.1kg.phase3.v5a.vcf.gz  out=!{pref}_!{chr}
+  java -jar -Xmx!{task.memory.toGiga()}g !{bg} map=!{params.maps_folder}/plink.chr!{chr}.GRCh37.map chrom=!{chr} gt=!{input_vcf} ref=!{params.ref_folder}/chr!{chr}.1kg.phase3.v5a.vcf.gz  out=!{pref}_imputed_!{chr}
   '''
 }
