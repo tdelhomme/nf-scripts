@@ -36,7 +36,7 @@ if (params.help) {
     log.info "                     USAGE                              "
     log.info "--------------------------------------------------------"
     log.info ""
-    log.info "nextflow run main.nf [OPTIONS]"
+    log.info "nextflow run bam_realign.nf [OPTIONS]"
     log.info ""
     log.info "Mandatory arguments:"
     log.info "--input_bam                 FOLDER                 Input folder containing one normal genome fasta for each sample"
