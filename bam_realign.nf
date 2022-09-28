@@ -79,6 +79,8 @@ process realign {
   '''
   samtools sort -n -o tmp.qsort.bam !{input_bam}
   bedtools bamtofastq -i tmp.qsort.bam -fq !{sample}_1.fq -fq2 !{sample}_2.fq
+  bwa index !{sample}_1.fq
+  bwa index !{sample}_2.fq
   bwa mem !{new_ref} !{sample}_1.fq !{sample}_2.fq
   '''
 }
