@@ -64,3 +64,26 @@ par_comb = Channel
     .combine([1,2,3,4,5,6])                 // gap extend
     .view()
 
+input_fastq = file(params.input_fastq)
+input_genome = file(params.input_genome)
+
+process blastn {
+
+    cpus params.cpu
+    memory params.mem+'GB'
+
+    publishDir params.output_folder, mode: 'copy', pattern: "*grid_trial*.txt"
+
+    input: 
+    set val(penalty), val(reward), val(gap_open), val (gap_extend) from par_comb
+    file input_fastq
+    file input_genome
+
+    shell:
+    '''
+    touch grid_trial_!{penalty}_!{reward}_!{gap_open}_!{gap_extend}.txt
+    echo " blastn -query !{input_fastq} -db !{input_genome} -out grid_trial_!{penalty}_!{reward}_!{gap_open}_!{gap_extend}.txt -max_target_seqs 1 -outfmt 10 -word_size 6 -penalty !{penalty} -reward !{reward} -gapopen !{gap_open} -gapextend !{gap_extend} -num_threads !{task.cpus} "
+
+    '''
+}
+
