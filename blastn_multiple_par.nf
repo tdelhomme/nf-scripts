@@ -37,7 +37,7 @@ if (params.help) {
     log.info "                     USAGE                              "
     log.info "--------------------------------------------------------"
     log.info ""
-    log.info "nextflow run bam_realign.nf [OPTIONS]"
+    log.info "nextflow run run_blastn_multiple_par.nf [OPTIONS]"
     log.info ""
     log.info "Mandatory arguments:"
     log.info "--input_fastq               FILE                   Input fastq file"
