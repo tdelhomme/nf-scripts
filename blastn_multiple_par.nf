@@ -54,3 +54,13 @@ if (params.help) {
     exit 1
 }
 
+assert (params.input_fastq != null) : "please provide the --input_fastq option"
+assert (params.input_genome != null) : "please provide the --new_genome option"
+
+par_comb = Channel
+    .from("-7","-5","-4","-3","-2","-1")    // penalty
+    .combine([1,2,3,4,5])                   // reward
+    .combine([0,1,2,3,4,5,6,8,10])          // gap open
+    .combine([1,2,3,4,5,6])                 // gap extend
+    .view()
+
