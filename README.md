@@ -1,5 +1,6 @@
 # nf-scripts
-folder of small nextflow scripts
+
+Repository containing various small nextflow pipelines.
 
 - Beagle imputation
 
