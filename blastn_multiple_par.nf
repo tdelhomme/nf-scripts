@@ -81,9 +81,7 @@ process blastn {
 
     shell:
     '''
-    touch grid_trial_!{penalty}_!{reward}_!{gap_open}_!{gap_extend}.txt
-    echo " blastn -query !{input_fastq} -db !{input_genome} -out grid_trial_!{penalty}_!{reward}_!{gap_open}_!{gap_extend}.txt -max_target_seqs 1 -outfmt 10 -word_size 6 -penalty !{penalty} -reward !{reward} -gapopen !{gap_open} -gapextend !{gap_extend} -num_threads !{task.cpus} "
-
+    blastn -query !{input_fastq} -db !{input_genome} -out grid_trial_!{penalty}_!{reward}_!{gap_open}_!{gap_extend}.txt -max_target_seqs 1 -outfmt 10 -word_size 6 -penalty !{penalty} -reward !{reward} -gapopen !{gap_open} -gapextend !{gap_extend} -num_threads !{task.cpus}
     '''
 }
 
