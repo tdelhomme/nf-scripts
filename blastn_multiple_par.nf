@@ -78,6 +78,9 @@ process blastn {
     set val(penalty), val(reward), val(gap_open), val (gap_extend) from par_comb
     file input_fastq
     file input_genome
+    
+    output:
+    file("*grid_trial*") into res
 
     shell:
     '''
