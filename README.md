@@ -6,5 +6,5 @@ Repository containing various small nextflow pipelines.
 
 - Realignment of BAM files
 
-- Blastn using variable parameters
+- Blastn using multiple parameter combinations
 
