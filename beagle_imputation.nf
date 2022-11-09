@@ -26,7 +26,7 @@ params.java_scratch = "./temp/"
 
 log.info ""
 log.info "-----------------------------------------------------------------------"
-log.info "beagle_imputation.nf"
+log.info "Nextflow pipeline to impute a VCF file using beagle"
 log.info "-----------------------------------------------------------------------"
 log.info "Copyright (C) IRB Barcelona"
 log.info "This program comes with ABSOLUTELY NO WARRANTY; for details see LICENSE"
