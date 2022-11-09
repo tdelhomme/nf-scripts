@@ -25,7 +25,7 @@ params.mem = "20"
 
 log.info ""
 log.info "-----------------------------------------------------------------------"
-log.info "Nextflow pipeline to re-align BAM files"
+log.info "Nextflow pipeline to run blastn with multiple option combinations"
 log.info "-----------------------------------------------------------------------"
 log.info "Copyright (C) IRB Barcelona"
 log.info "This program comes with ABSOLUTELY NO WARRANTY; for details see LICENSE"
