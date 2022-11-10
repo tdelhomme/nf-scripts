@@ -8,3 +8,5 @@ Repository containing various small nextflow pipelines.
 
 - Blastn using multiple parameter combinations
 
+- Convert a blast(n) tabulated output into a BAM file
+
